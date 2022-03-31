@@ -13,16 +13,10 @@ type ActionType = {
     payload: {
         name: string,
         reactElement: any,
-        path: any,
         state?: any,
         position?: any
     },
-    children: null,
-    position?: {
-        x: null,
-        y: null,
-        scrollId: ''
-    }
+    children: null
 }
 
 function cacheReducer(state: Object, action: ActionType) {
@@ -38,7 +32,6 @@ function cacheReducer(state: Object, action: ActionType) {
                     reactElement: payload.reactElement, //渲染的虚拟dom
                     state: cacheType.CREATE, //缓存的状态是创建中,
                     children: null,
-                    path: payload.path
                 }
             }
         case cacheType.CREATED:
